@@ -1,0 +1,10 @@
+<%= @jots.each do |jot|%>
+<br>
+    <strong><%= link_to jot.title, jot_path(jot)%></strong>
+		<br>
+		<br>
+		<%= jot.body%>
+		<br>
+		<br>
+		<%= jot.created_at.strftime(" %A, %B %d - %Y") %>
+<%end%>
