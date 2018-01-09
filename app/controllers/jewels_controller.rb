@@ -13,7 +13,7 @@ class JewelsController < ApplicationController
 		@jewel = Jewel.new
 	end
 
-    def create
+  def create
 		@jewel = Jewel.new(body: params[:body], jot_id: params[:jot_id])
 		if @jewel.save
 			flash[:notice] = "jewel Submitted, Your Legacy Will Live On"

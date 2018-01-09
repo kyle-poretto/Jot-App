@@ -15,14 +15,13 @@ class JotsController < ApplicationController
 	end
 
 	def create
-		raise params.inspect
 		@jot = Jot.new(title: params[:jot][:title], body: params[:jot][:body], user_id: params[:jot][:user_id])
-		# #if @jot.save
-		# 	flash[:notice] = "Jot Submitted, Your Legacy Will Live On"
-		# 	redirect_to jot_path(@jot)
-		# else
-		# 	redirect_to new_jot_path 
-		# end
+		if @jot.save
+			flash[:notice] = "Jot Submitted, Your Legacy Will Live On"
+			redirect_to jot_path(@jot)
+		else
+			redirect_to new_jot_path 
+		end
 	end
 	
 	def show
