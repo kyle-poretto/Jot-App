@@ -1,8 +1,18 @@
-Title: 
+<strong>Title: </strong>
 <br>
 <%= @jot.title %>
 <br>
-Body: <br>
+
+<strong>Body:</strong> <br>
+
 <%= @jot.body %>
 <br>
 <%= link_to 'Edit Jot', edit_jot_path(@jot) %>
+<br>
+<br>
+<strong>Create Jewel </strong>
+<%= form_for @jot.jewel, url: {action: "create"} do |f|%>
+		<%= f.text_field :body %>	
+		<br>
+		<%= f.submit "Create Jewel" %>
+<% end %>

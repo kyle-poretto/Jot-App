@@ -10,11 +10,11 @@ class JewelsController < ApplicationController
 	end
 
 	def new
-		@jewel = jewel.new
+		@jewel = Jewel.new
 	end
 
-	def create
-		@jewel = jewel.new(body: params[:jewel][:body], jot_id: params[:jewel][:jot_id])
+    def create
+		@jewel = Jewel.new(body: params[:body], jot_id: params[:jot_id])
 		if @jewel.save
 			flash[:notice] = "jewel Submitted, Your Legacy Will Live On"
 			redirect_to jewel_path(@jewel)
