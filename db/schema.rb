@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180107223834) do
+ActiveRecord::Schema.define(version: 20180110003259) do
 
   create_table "jewels", force: :cascade do |t|
     t.integer "jot_id"
@@ -23,9 +23,19 @@ ActiveRecord::Schema.define(version: 20180107223834) do
     t.string "title"
     t.string "body"
     t.integer "user_id"
-    t.integer "jewel_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "jewel_id"
+  end
+
+  create_table "mutual_relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
+  end
+
+  create_table "nonmutual_relationships", force: :cascade do |t|
+    t.integer "followed_id"
+    t.integer "follower_id"
   end
 
   create_table "users", force: :cascade do |t|

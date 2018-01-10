@@ -1,9 +1,9 @@
-require "pry"
 class JotsController < ApplicationController
 	before_action :set_jot, only: [:edit, :show]
 
 	def home
 		@jot = Jot.new
+		@jots = current_user.followers.jots
 	end
 
 	def index
@@ -25,11 +25,21 @@ class JotsController < ApplicationController
 	end
 	
 	def show
-		@jewel = @jot.build_jewel
+		if @jot.jewel
+			@jewel = @jot.jewel
+		else
+			@jewel = @jot.build_jewel
+		end 
 	end
 
 	def edit
 		
+	end
+
+	def update
+		#"jot"=>{"title"=>"THe best title for my jot", "user_id"=>"5", "body"=>"the jot of teh millenia"},
+		@jot = Jot.update(title: params[:jot][:title], user_id: params[:jot][:user_id], body: params[:jot][:body])	
+		redirect_to jot_path(@jot)
 	end
 
 

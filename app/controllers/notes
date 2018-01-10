@@ -1,0 +1,20 @@
+1. Add Authenticatio with Gmail
+2. Forms must have validation errors
+
+
+Add Tags Feature
+    - each user will have many Tags
+    - Jot will have many categories
+
+Jewels will have tags as well.
+
+Steps
+1. Add Model
+2. Add Migration
+3. Create Controller
+4. Create Views
+5. 
+
+Add the ability to follow others
+    
+You get one jot a day - 

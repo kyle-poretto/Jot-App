@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   resources :jewels
 
   post '/jots/new', to: 'jots#create' 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  patch '/jewels', to: 'jewels#update'
+  post '/jots/:id/edit', to: 'jots#update'
+
 end

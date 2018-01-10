@@ -1,0 +1,5 @@
+<%= @jewels.each do |jewel|%>
+  <%= jewel.body %>
+  <br>
+  <%= link_to 'Edit Jewel', edit_jewel_path(jewel) %>
+<% end %>

@@ -13,8 +13,8 @@ class JewelsController < ApplicationController
 		@jewel = Jewel.new
 	end
 
-  def create
-		@jewel = Jewel.new(body: params[:body], jot_id: params[:jot_id])
+	def create
+		@jewel = Jewel.new(body: params[:jewel][:body], jot_id: params[:jewel][:jot_id])
 		if @jewel.save
 			flash[:notice] = "jewel Submitted, Your Legacy Will Live On"
 			redirect_to jewel_path(@jewel)
@@ -31,11 +31,15 @@ class JewelsController < ApplicationController
 		
 	end
 
-
+	def update
+		@jewel = Jewel.find(params[:jewel][:id])
+		@jewel.body = params[:jewel][:body]
+		redirect_to jewel_path(@jewel)
+	end
 
   private 
 
-  def set_jewel
-    @jewel = jewel.find(params[:id])
+	def set_jewel
+    @jewel = Jewel.find(params[:id])
   end
 end
