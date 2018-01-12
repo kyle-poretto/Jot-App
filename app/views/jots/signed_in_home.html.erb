@@ -1,0 +1,35 @@
+ <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
+
+<% if current_user %>
+    <% if current_user.low_following_count? %>
+    <%= User.most_popular.each do |user|%>
+          <br>
+          <%= user.first_name %>
+          <br>
+          <%= user.last_name%>
+          <br>
+          <%= button_to("Follow", (current_user.follow(user))) %>
+
+          <% end %>
+      <% else %>
+        <%= User.most_popular.each do |user|%>
+          <%= @jots.each do |jot|%>
+          <%= jot.title %>
+          <%= jot.body %>
+          <% end %>
+    <% end %>
+    <% end %>
+  <% end %>
+
+
+<%= link_to 'Create Jot', new_jot_path(@jot) %>
+
+<%= link_to 'My Jots', jots_path %>
+
+<%= link_to 'My Jewels', jewels_path %>
+
+<br>
+
+<%= render 'shared/stats' %>

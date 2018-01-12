@@ -1,5 +1,5 @@
 class Jot < ApplicationRecord
-    belongs_to :user
+    belongs_to :user, optional: true
     has_one :jewel
 
     accepts_nested_attributes_for :jewel

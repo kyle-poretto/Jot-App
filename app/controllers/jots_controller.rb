@@ -1,9 +1,18 @@
 class JotsController < ApplicationController
 	before_action :set_jot, only: [:edit, :show]
 
-	def home
+	def not_signed_in_home
+		
+	end
+
+	def signed_in_home
+		if current_user.member_signed_in?
 		@jot = Jot.new
-		@jots = current_user.followers.jots
+		@followers = current_user.following
+		@user = current_user
+		else 
+			redirect_to not_signed_in_home_path
+		end
 	end
 
 	def index
