@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :jots
   resources :jewels
+  resources :relationships, only: [:create, :destroy]
 
   post '/jots/new', to: 'jots#create' 
   patch '/jewels', to: 'jewels#update'

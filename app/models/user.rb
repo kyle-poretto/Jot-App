@@ -19,7 +19,12 @@ class User < ApplicationRecord
   #Follows a user :)
 
   def follow(other_user)
-    following << other_user
+    if followers.include?(other_user)
+      raise "what the fuck man"
+    else 
+      followers << other_user
+    end
+    
   end
 
   #Unfollows a user :(
@@ -32,9 +37,10 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
-  def self.most_popular
+  def most_popular
     @ordered_users = User.all.sort{|a,b| b.followers.count <=> a.followers.count}
   end
+
 
 
   def low_following_count?

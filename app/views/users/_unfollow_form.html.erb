@@ -1,0 +1,4 @@
+<%= form_for(current_user.mutual_relationships.find_by(followed_id: current_user.id),
+             html: { method: :delete }) do |f| %>
+  <%= f.submit "Unfollow" %>
+<% end %>

@@ -8,19 +8,23 @@
   <%= render 'shared/jot_actions', locals: {jot: @jot} %>
 
   <% if current_user.low_following_count? %>
-    <%= User.most_popular.each do |user|%>
+    <%= current_user.most_popular.each do |user|%>
         <br>
-        <%= user.first_name %>
-        <br>
-        <%= user.last_name%>
-        <br>
-        <%= button_to("Follow", (current_user.follow(user))) %>
+        <% if !current_user.following?(user)%>
+          <%= user.first_name %>
+          <%= user.last_name%>
+          <%= user.jewels.take(2).each do |jewel| %>
+            <%= jewel.body %>
+            <%= render 'users/follow_form' %>
+          <% end %>
         <% end %>
+        <br>
+        
+      <% end %>
       <% else %>
-        <%= User.most_popular.each do |user|%>
-          <%= user.jots.each do |jot|%>
-          <%= jot.title %>
-          <%= jot.body %>
+        <%= current_user.most_popular.each do |user|%>
+          <%= user.jewels.each do |jewel|%>
+          <%= jewel.body %>
           <% end %>
     <% end %>
   <% end %>

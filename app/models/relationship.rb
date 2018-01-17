@@ -14,10 +14,7 @@ class Relationship < ApplicationRecord
 			follower.jots
     end
 	end
-	
-	def doesnt_follow_self
-    errors.add(:base, 'You can\'t follow yourself') if current_user == follower
-  end
+
 
 
 end

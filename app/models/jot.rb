@@ -10,4 +10,5 @@ class Jot < ApplicationRecord
         require(:jot).permit(:title, :body, :user_id, :jewel_attributes)
     end
 
+
 end
