@@ -1,5 +1,17 @@
 <%= render 'shared/stats' %>
 
-<%= link_to 'Edit Profile', user_path(current_user) %>
-
-<%= link_to 'Edit Account', edit_registration_path(current_user) %>
+	<% if @user == current_user%>
+		<%= link_to 'Edit Profile', user_path(current_user) %>
+			<br>
+		<%= link_to 'Edit Account', edit_registration_path(current_user) %>
+	<% else %>
+		<%= @user.full_name%>
+		<%= render 'follow_form' %>
+		<br>
+		<% @user.jewels.each do |jewel|  %>
+			<br>
+			<%= jewel.created_at.strftime("%m-%d-%Y") %>
+			<br>
+			<%= jewel.body %>
+	<% end %>
+	<% end %>

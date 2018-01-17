@@ -1,3 +1,8 @@
 Created jot form
     -edit jot
     
+
+Issue: 
+    When a user follows someone, it's also adding them to their follower list.
+        - meaning they instantly follow eachother vs a one way follow
+    

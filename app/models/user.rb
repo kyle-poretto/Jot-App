@@ -40,7 +40,10 @@ class User < ApplicationRecord
   def most_popular
     @ordered_users = User.all.sort{|a,b| b.followers.count <=> a.followers.count}
   end
-
+  
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 
 
   def low_following_count?

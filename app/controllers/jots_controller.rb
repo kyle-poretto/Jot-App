@@ -5,7 +5,7 @@ class JotsController < ApplicationController
 		
 	end
 
-	def signed_in_home
+	def home
 		if current_user.member_signed_in?
 		@jot = Jot.new
 		@followers = current_user.following

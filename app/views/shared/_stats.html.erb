@@ -1,5 +1,6 @@
- Following
-<%= current_user.following.count%>
+ Following:
+<%= link_to current_user.following.count, following_user_path(current_user)  %>
 <br>
-Followers
-<%= current_user.followers.count %>
+Followers:
+<%= link_to current_user.followers.count, following_user_path(current_user) %>
+
