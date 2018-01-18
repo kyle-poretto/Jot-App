@@ -1,26 +1,30 @@
-<strong>Title: </strong>
-<br>
-<%= @jot.title %>
-<br>
+<% if !current_user.jots.empty? %>
+	<strong>Title: </strong>
+	<br>
+	<%= @jot.title %>
+	<br>
 
-<strong>Body:</strong> <br>
+	<strong>Body:</strong> <br>
 
-<%= @jot.body %>
-<br>
-<%= link_to 'Edit Jot', edit_jot_path(@jot) %>
-<br>
-<br>
+	<%= @jot.body %>
+	<br>
+	<%= link_to 'Edit Jot', edit_jot_path(@jot) %>
+	<br>
+	<br>
 
-	<% if @jewel.id %>
-		<strong> Edit Jewel </strong>
-		<%= form_for @jewel, url: {controller: "jewels", action: "update"} do |f|%>
-				<%= f.hidden_field :id %>
-				<%= f.hidden_field :jot_id %>
-				<%= f.text_field :body %>	
-				<br>
-				<%= f.submit "Edit Jewel" %>
-				<% end %>
+		<% if @jewel.id %>
+			<strong> Edit Jewel </strong>
+			<%= form_for @jewel, url: {controller: "jewels", action: "update"} do |f|%>
+					<%= f.hidden_field :id %>
+					<%= f.hidden_field :jot_id %>
+					<%= f.text_field :body %>	
+					<br>
+					<%= f.submit "Edit Jewel" %>
+					<% end %>
+			<% else %>
+			<strong>Create Jewel </strong>
+			<%= render 'jewels/form' %>
+		<% end %>
 		<% else %>
-		<strong>Create Jewel </strong>
-		<%= render 'jewels/form' %>
-	<% end %>
+			<%= There are no jots %>
+		<% end %>

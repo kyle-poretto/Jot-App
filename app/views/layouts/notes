@@ -6,3 +6,18 @@ Issue:
     When a user follows someone, it's also adding them to their follower list.
         - meaning they instantly follow eachother vs a one way follow
     
+
+    - when a user clicks "followers" it goes to "following"
+
+User is still adding itself when it follows 
+
+when you hit follow, current_user is also added to the following list
+
+Following Works
+
+Where I am in project
+
+    - When a user follows another user
+
+    - Devise does not work
+

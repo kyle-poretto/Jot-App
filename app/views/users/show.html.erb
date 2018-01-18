@@ -1,17 +1,21 @@
 <%= render 'shared/stats' %>
-
-	<% if @user == current_user%>
+	<% if current_user == @user %>
 		<%= link_to 'Edit Profile', user_path(current_user) %>
 			<br>
 		<%= link_to 'Edit Account', edit_registration_path(current_user) %>
-	<% else %>
+	<% end %>
 		<%= @user.full_name%>
-		<%= render 'follow_form' %>
+		<%= render 'users/follow_form' %>
 		<br>
-		<% @user.jewels.each do |jewel|  %>
+
+		<% if @user.jewels.any? %>
+			<% @user.jewels.each do |jewel|  %>
 			<br>
 			<%= jewel.created_at.strftime("%m-%d-%Y") %>
 			<br>
 			<%= jewel.body %>
+
+		<% end %>
 	<% end %>
-	<% end %>
+	FOllowing:
+	<%= current_user.following.inspect %>

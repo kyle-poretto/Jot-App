@@ -1,0 +1,6 @@
+<% @followers.each do |follower|%>
+	<%= follower.full_name %>
+	<%= render 'follow_form' %>
+	<% end %>
+
+	<%= @followers.inspect %>

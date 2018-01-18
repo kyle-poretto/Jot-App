@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: "static#home"
+
 
   resources :jots
   resources :jewels
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
 
   resources :users do 
     member do get :followers, :following
+    end
   end
-end
+
 end

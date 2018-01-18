@@ -5,7 +5,8 @@ class UsersController < ApplicationController
     end
     
     def followers
-      @jots = current_user.followers
+      @followers = current_user.followers
+      @user = current_user
     end
 
     def show
@@ -14,7 +15,9 @@ class UsersController < ApplicationController
     
     def following
       @user = User.find(params[:id])
+      @followed_users = @user.following
     end
+
 		
 		def edit
 			
