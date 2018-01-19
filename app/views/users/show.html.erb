@@ -1,11 +1,11 @@
 <%= render 'shared/stats' %>
 	<% if current_user == @user %>
-		<%= link_to 'Edit Profile', user_path(current_user) %>
-			<br>
+		<br>
 		<%= link_to 'Edit Account', edit_registration_path(current_user) %>
+	<% else %>
+		<%= render 'users/follow_form' %>
 	<% end %>
 		<%= @user.full_name%>
-		<%= render 'users/follow_form' %>
 		<br>
 
 		<% if @user.jewels.any? %>
@@ -16,6 +16,6 @@
 			<%= jewel.body %>
 
 		<% end %>
+		<% else %>
+			He does not have any jots
 	<% end %>
-	FOllowing:
-	<%= current_user.following.inspect %>

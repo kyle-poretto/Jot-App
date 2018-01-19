@@ -1,4 +1,10 @@
-<%= form_for(:jot) do |f| %>
+<%= form_for(:jot)  do |f| %>
+<%= @jot.errors.inspect %>
+<% if @jot.errors.any? %>
+    <% @jot.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  <% end %>
     Start Jotting
     <br>
     <br>

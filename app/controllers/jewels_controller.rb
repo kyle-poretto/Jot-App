@@ -2,7 +2,8 @@ class JewelsController < ApplicationController
     before_action :set_jewel, only: [:edit, :show]
 
 	def home
-		@jewel = jewel.new
+		@jot = Jot.new
+		@jewel = Jewel.new
 	end
 
 	def index
@@ -37,7 +38,11 @@ class JewelsController < ApplicationController
 		redirect_to jewel_path(@jewel)
 	end
 
-  private 
+	private 
+	
+	def jewel_params
+		params.require(:jewel).permit(:id, :body, :jot_id)
+	end
 
 	def set_jewel
     @jewel = Jewel.find(params[:id])

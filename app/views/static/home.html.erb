@@ -5,7 +5,7 @@
 <% if current_user %>
   <%= render 'shared/stats' %>
 
-  <%= render 'shared/jot_actions', locals: {jot: @jot} %>
+  <%= render 'shared/jot_actions' %>
 
   <% if current_user.low_following_count? %>
     <% current_user.most_popular.each do |user|%>

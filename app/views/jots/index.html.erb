@@ -1,6 +1,6 @@
 <% @jots.each do |jot|%>
 <br>
-    <strong><%= link_to jot.title, jot_path(jot)%></strong>
+    <strong><%= link_to jot.title, user_jot_path(jot) %></strong>
 		<br>
 		<br>
 		<%= jot.body%>

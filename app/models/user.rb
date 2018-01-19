@@ -52,6 +52,5 @@ class User < ApplicationRecord
     self.following.count < 10
   end
 
-  private
-
 end
+

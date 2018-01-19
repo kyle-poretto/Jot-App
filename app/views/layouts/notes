@@ -21,3 +21,26 @@ Where I am in project
 
     - Devise does not work
 
+- Validation errors dont show up
+- Omniauth doesn't work
+- Add strong parameters
+
+
+Clean up    
+    -Jots
+        -model
+        -controller
+        -view
+    -Jewels
+        -model 
+        -controller
+        views
+    Profile
+        -views
+
+
+
+
+
+
+
