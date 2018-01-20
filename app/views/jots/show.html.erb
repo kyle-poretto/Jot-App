@@ -12,18 +12,10 @@
 	<br>
 	<br>
 
-		<% if @jewel.id %>
-			<strong> Edit Jewel </strong>
-			<%= form_for @jewel, url: {controller: "jewels", action: "update"} do |f|%>
-					<%= f.hidden_field :id %>
-					<%= f.hidden_field :jot_id %>
-					<%= f.text_field :body %>	
-					<br>
-					<%= f.submit "Edit Jewel" %>
-					<% end %>
+		<% if @jewel.body %>
+      <%= @jewel.body %>
 			<% else %>
-			<strong>Create Jewel </strong>
-			<%= render 'jewels/form' %>
+			<%= link_to 'Create Jewel', new_user_jewel_path(@user, @jewel) %>
 		<% end %>
 		<% else %>
 			<%= There are no jots %>

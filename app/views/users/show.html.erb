@@ -7,15 +7,13 @@
 	<% end %>
 		<%= @user.full_name%>
 		<br>
-
 		<% if @user.jewels.any? %>
 			<% @user.jewels.each do |jewel|  %>
 			<br>
 			<%= jewel.created_at.strftime("%m-%d-%Y") %>
 			<br>
 			<%= jewel.body %>
-
 		<% end %>
 		<% else %>
-			He does not have any jots
+			You not have any jots
 	<% end %>

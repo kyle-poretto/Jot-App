@@ -1,7 +1,6 @@
-<%= form_for @jewel, url: {controller: "jewels", action: "create"} do |f| %>
+<%= form_for [@user, @jewel] do |f| %>
+  <%= f.hidden_field :jot_id, value: @jot.id %>
 	<%= f.text_field :body %>
-	<%= hidden_field_tag '[jewel][jot_id]', @jot.id unless @jot.nil? %>
-	<%= hidden_field_tag '[jewel][id]', @jewel.id unless @jewel.id.nil? %>
 	<br>
 	<%= f.submit %>
 <% end %>

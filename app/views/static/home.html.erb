@@ -4,26 +4,23 @@
 
 <% if current_user %>
   <%= render 'shared/stats' %>
-
+  <br>
   <%= render 'shared/jot_actions' %>
-
+<br>
   <% if current_user.low_following_count? %>
     <% current_user.most_popular.each do |user|%>
         <br>
         <% if !current_user.following?(user)%>
-          <%= link_to user.full_name, user_path(user) %>
-          <% user.jewels.take(2).each do |jewel| %>
-            <br>
-            <%= jewel.created_at.strftime("%m-%d-%Y") %>
-            <br>
-            <%= jewel.body %>
+            <%= link_to user.full_name, user_path(user) %>
+              <% user.jewels.each do |jewel| %>
+              <br>
+              <%= jewel.created_at.strftime("%m-%d-%Y") %>
+              <br>
+              <%= jewel.body %>
           <% end %>
         <% end %>
-        <br>
-
-
-        
-      <% end %>
+        <br>    
+    <% end %>
       <% else %>
         <% current_user.most_popular.each do |user| %>
           <%= user.jewels.each do |jewel|%>

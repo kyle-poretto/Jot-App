@@ -22,14 +22,16 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
 
   #jots
-  post '/jots/new', to: 'jots#create' 
-  post '/jots/:id/edit', to: 'jots#update'
+  post '/users/:id/jots/new', to: 'jots#create' 
+  post '/users/:id/jots/:id/edit', to: 'jots#update'
   get '/users/sign_out', to: 'jots#home'
 
+
   #jewels
-  
-  #patch '/jewels', to: 'jewels#update'
-  #get 'jewels/all', to: 'jewels#index'
+  patch '/jewels', to: 'jewels#update'
+  get 'jewels/all', to: 'jewels#index'
+  get '/jot/:id/jewels/:id', to: 'jewels#show'
+  post '/users/:id/jewels/:id', to: 'jewels#update'
 
 
 

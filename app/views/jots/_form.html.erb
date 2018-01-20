@@ -1,13 +1,14 @@
-<%= form_for(:jot)  do |f| %>
-<%= @jot.errors.inspect %>
-<% if @jot.errors.any? %>
-    <% @jot.errors.full_messages.each do |message| %>
+<%= form_for [user, jot]  do |f| %>
+<% if jot.errors.any? %>
+    <% jot.errors.full_messages.each do |message| %>
       <li><%= message %></li>
     <% end %>
   <% end %>
-    Start Jotting
-    <br>
-    <br>
+  <br>
+  <br>
+  Start Jotting
+  <br>
+  <br>
   Title<%= f.text_field :title %>
   <br>
   <br>

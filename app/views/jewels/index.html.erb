@@ -1,5 +1,12 @@
-<% @jewels.each do |jewel|%>
-  <%= jewel.body %>
-  <br>
-  <%= link_to 'Edit Jewel', edit_jewel_path(jewel) %>
-<% end %>
+
+<% if @jewels.count > 0 %>
+  <% @jewels.each do |jewel|%>
+    <%= jewel.body %>
+    <br>
+    <%= link_to 'Edit Jewel', user_jewel_path(current_user, jewel) %>
+  <% end %>
+
+  <% else %>
+    You have no jewels yet! Make a jot then make your jewel.
+
+  <% end %>

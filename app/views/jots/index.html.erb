@@ -1,10 +1,14 @@
-<% @jots.each do |jot|%>
-<br>
-    <strong><%= link_to jot.title, user_jot_path(jot) %></strong>
+<% if @jots.count > 0 %>
+		<% @jots.each do |jot|%>
 		<br>
-		<br>
-		<%= jot.body%>
-		<br>
-		<br>
-		<%= jot.created_at.strftime(" %A, %B %d - %Y") %>
-<%end%>
+			<strong><%= link_to jot.title, user_jot_path(@user, jot) %></strong>
+			<br>
+			<br>
+			<%= jot.body%>
+			<br>
+			<br>
+			<%= jot.created_at.strftime(" %A, %B %d - %Y") %>
+			<% end %>
+	<% else %>
+		<%= link_to 'You have no Jots Yet, Create a Jot Here', new_user_jot_path %>
+	<% end %>
