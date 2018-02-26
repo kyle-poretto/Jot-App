@@ -26,18 +26,18 @@ class JewelsController < ApplicationController
 		end
 	end
 	
-	def show
-
+  def show
 	end
 
-	def edit
-		@user = User.find(params[:user_id])
+  def edit
+    @user = User.find(params[:user_id])
+    @jot = @jewel.jot
 	end
 
   def update
-		@jewel = Jewel.find(params[:jewel][:id])
+		@jewel = Jewel.find(params[:id])
 		@jot = Jot.find(params[:jewel][:jot_id])
-		redirect_to jot_jewel_path([@jot, @jewel])
+		redirect_to user_jewel_path([current_user, @jewel])
 	end
 
 	private 

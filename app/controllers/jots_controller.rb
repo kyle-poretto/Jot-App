@@ -22,7 +22,7 @@ class JotsController < ApplicationController
 	end
 
 	def create
-		@user = User.find(params[:user_id])
+    @user = User.find(params[:user_id])
 		@jot = Jot.new(title: params[:jot][:title], body: params[:jot][:body], user_id: params[:jot][:user_id])
 		if @jot.save
 			redirect_to user_jot_path(current_user, @jot)
@@ -37,19 +37,19 @@ class JotsController < ApplicationController
     @jewel = @user.jewels.build
 	end
 
-	def edit
-		@user = User.find(params[:user_id])
+  def edit
+		@user = current_user.id
 	end
 
 	def update
-		@jot = Jot.update(title: params[:jot][:title], user_id: params[:jot][:user_id], body: params[:jot][:body])	
+    @jot = Jot.update(title: params[:jot][:title], user_id: params[:jot][:user_id], body: params[:jot][:body])	
 		redirect_to user_jot_path(current_user, @jot)
 	end
 
   private 
   
-  def jot_parameters
-		params.permit(:jot).require(:jot_id, :title, :body, :user_id)
+  def jot_parameters(*args)
+		params.require(:jot).permit(*args)
   end
 
   def set_jot

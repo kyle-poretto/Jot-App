@@ -33,6 +33,4 @@ Rails.application.routes.draw do
   get '/jot/:id/jewels/:id', to: 'jewels#show'
   post '/users/:id/jewels/:id', to: 'jewels#update'
 
-
-
 end
