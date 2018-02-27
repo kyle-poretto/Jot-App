@@ -18,7 +18,6 @@ user_four = User.create!(
   {first_name: "Lyle", last_name: "Loretto", email: "KP@betterment.com", password: "some_asdfpaasdfsasdfvzdsdfadsfsword", frequency: "Once a week", reminder_day_of_week: "Monday" , age: 65, reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2014-12-31 22:27:09", last_sign_in_at: "2014-11-31 22:27:09", current_sign_in_ip: "121.0.0.1", last_sign_in_ip: "127.0.0.1"}
 )
 
-
 #Jots
 jot = Jot.new
 jot.title = "A big change in my life"
