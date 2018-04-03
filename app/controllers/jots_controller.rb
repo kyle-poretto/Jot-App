@@ -23,7 +23,6 @@ class JotsController < ApplicationController
 
 	def create
     @user = User.find(params[:user_id])
-    @jot = Jot.new(title: params[:jot][:title], body: params[:jot][:body], user_id: params[:jot][:user_id])
     @jot = Jot.new(jot_parameters(:title, :body, :user_id))
 		if @jot.save
 			redirect_to user_jot_path(current_user, @jot)
@@ -45,8 +44,8 @@ class JotsController < ApplicationController
 	def update
     @jot = Jot.update(title: params[:jot][:title], user_id: params[:jot][:user_id], body: params[:jot][:body])	
 		redirect_to user_jot_path(current_user, @jot)
-	end
-
+  end
+  
   private 
   
   def jot_parameters(*args)

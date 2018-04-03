@@ -1,5 +1,5 @@
-<%= form_for [@user, @jewel] do |f| %>
-  <%= f.hidden_field :jot_id, value: @jot.id %>
+<%= form_for [user, jewel] do |f| %>
+  <%= f.hidden_field :jot_id, value: jot.id %>
 	<%= f.text_field :body %>
 	<br>
 	<%= f.submit %>

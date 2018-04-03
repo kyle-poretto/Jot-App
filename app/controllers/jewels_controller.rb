@@ -17,7 +17,7 @@ class JewelsController < ApplicationController
 	end
 
   def create
-		@jewel = Jewel.new(body: params[:jewel][:body], jot_id: params[:jewel][:jot_id])
+		@jewel = Jewel.new(jewel_params)
 		@jot = Jot.find(params[:jewel][:jot_id])
 		if @jewel.save
 			redirect_to user_jewel_path(current_user, @jewel)
